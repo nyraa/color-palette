@@ -13,7 +13,7 @@ const SaturationSlider: React.FC<SaturationSliderProps> = ({ saturation, onChang
     return (
         <Box
             sx={{
-                px: 2,
+                px: 4,
                 py: 1
             }}
         >
