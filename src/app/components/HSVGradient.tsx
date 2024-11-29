@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import styles from "./HSVGradient.module.css";
 
 function hsv2csshsl(h: number, s: number, v: number)

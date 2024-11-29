@@ -1,7 +1,5 @@
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
-import styles from "./SaturationSlider.module.css";
-import Typography from "@mui/material/Typography";
 
 interface SaturationSliderProps {
     saturation: number;
