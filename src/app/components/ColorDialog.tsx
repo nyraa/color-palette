@@ -1,6 +1,5 @@
 "use client";
-import { DialogContent, Typography } from "@mui/material";
-import Dialog from "@mui/material/Dialog";
+import { Dialog, DialogTitle, DialogContent, Typography } from "@mui/material";
 
 const HSVtoRGB = (h: number, s: number, v: number) =>
 {
@@ -21,6 +20,7 @@ const ColorDialog: React.FC<ColorDialogProps> = ({ open, color, onClose }) =>
     const rgb = HSVtoRGB(color.h, color.s / 100, color.v / 100);
     return (
         <Dialog open={open} onClose={onClose}>
+            <DialogTitle>非常好顏色</DialogTitle>
             <DialogContent>
                 <div style={{ background: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, width: 100, height: 100 }}></div>
                 <Typography>HSV: {color.h.toFixed(1)}, {color.s.toFixed(2)}%, {color.v.toFixed(2)}%</Typography>
