@@ -23,7 +23,7 @@ const ColorDialog: React.FC<ColorDialogProps> = ({ open, color, onClose }) =>
         <Dialog open={open} onClose={onClose}>
             <DialogContent>
                 <div style={{ background: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, width: 100, height: 100 }}></div>
-                <Typography>HSV: {color.h.toFixed(1)}, {color.s.toFixed(2)}%, {color.v}%</Typography>
+                <Typography>HSV: {color.h.toFixed(1)}, {color.s.toFixed(2)}%, {color.v.toFixed(2)}%</Typography>
                 <Typography>RGB: {rgb.r}, {rgb.g}, {rgb.b}</Typography>
             </DialogContent>
         </Dialog>
