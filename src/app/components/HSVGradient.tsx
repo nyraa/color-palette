@@ -2,6 +2,13 @@
 import React, { useState } from "react";
 import styles from "./HSVGradient.module.css";
 
+function hsv2csshsl(h: number, s: number, v: number)
+{
+    const nl = (100 - (s / 2));
+    const ns = (v - nl)/Math.min(nl, 100-nl);
+    return `hsl(${h}, ${ns * 100}%, ${nl}%)`;
+}
+
 interface HSVGradientProps {
     saturation: number,
     onClick: (color: { h: number, s: number, v: number }) => void,
@@ -23,9 +30,8 @@ const HSVGradient: React.FC<HSVGradientProps> = ({ saturation, onClick }) => {
             style={{
                 background:`
                     linear-gradient(to top, black, transparent),
-                    linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red)
+                    linear-gradient(to right, ${hsv2csshsl(0, saturation, 100)}, ${hsv2csshsl(60, saturation, 100)}, ${hsv2csshsl(120, saturation, 100)}, ${hsv2csshsl(180, saturation, 100)}, ${hsv2csshsl(240, saturation, 100)}, ${hsv2csshsl(300, saturation, 100)}, ${hsv2csshsl(0, saturation, 100)})
                 `,
-                filter: `saturate(${saturation}%)`,
             }}
         ></div>
     )

@@ -3,6 +3,7 @@
 import styles from "./page.module.css";
 import HSVGradient from "@/app/components/HSVGradient";
 import ColorDialog from "@/app/components/ColorDialog";
+import SaturationSlider from "@/app/components/SaturationSlider";
 import { useState } from "react";
 
 export default function Home()
@@ -15,10 +16,14 @@ export default function Home()
         setColor(color);
         setColorDialogOpen(true);
     }
+    const handleSaturationChange = (saturation: number) => setSaturation(saturation);
     const handleDialogClose = () => setColorDialogOpen(false);
     return (
         <>
-            <HSVGradient saturation={100} onClick={handleColorClick} />
+            <div className={styles.main}>
+                <SaturationSlider saturation={saturation} onChange={handleSaturationChange} />
+                <HSVGradient saturation={saturation} onClick={handleColorClick} />
+            </div>
             <ColorDialog open={colorDialogOpen} color={color} onClose={handleDialogClose} />
         </>
     );
