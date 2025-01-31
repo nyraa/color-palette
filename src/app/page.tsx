@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 import HSVGradient from "@/app/components/HSVGradient";
 import ColorDialog from "@/app/components/ColorDialog";
 import SaturationSlider from "@/app/components/SaturationSlider";
+import InfoDialog from "@/app/components/InfoDialog";
+import { Box } from "@mui/material";
 import { useState } from "react";
 
 export default function Home()
@@ -21,7 +23,15 @@ export default function Home()
     return (
         <>
             <div className={styles.main}>
-                <SaturationSlider saturation={saturation} onChange={handleSaturationChange} />
+                <Box sx={{
+                    display: "flex",
+                    pl: 4,
+                    pr: 1,
+                    py: 1
+                }}>
+                    <SaturationSlider saturation={saturation} onChange={handleSaturationChange} />
+                    <InfoDialog />
+                </Box>
                 <HSVGradient saturation={saturation} onClick={handleColorClick} />
             </div>
             <ColorDialog open={colorDialogOpen} color={color} onClose={handleDialogClose} />
